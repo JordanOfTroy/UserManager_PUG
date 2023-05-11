@@ -10,6 +10,18 @@ server.use(express.urlencoded({extended: false}))
 server.set('views', path.join(__dirname, 'views'))
 server.set('view engine', 'pug')
 
+
+
+server.get('/', (req, res) => {
+    res.render('index', {
+        formTitle: 'Create a user',
+        formType: 'create'
+    })
+})
+
+
+
+
 server.listen(PORT, () => {
     console.log(`Master has given Dobby a port ${PORT}!\nDobby is free!!!`)
 })
