@@ -6,11 +6,29 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
     body 
-        h1 USER LIST
-        each user in users
-            p Name: #{user.name}
-            ul 
-                li Username: #{user.username}
-                li Age: #{user.age}
-                li Email: #{user.email}
-                
+        if users.length > 0
+            h1 USER LIST 
+                span 
+                    a(href="/") Add New User
+            table
+                tr 
+                    th Name
+                    th UserName
+                    th Age
+                    th Email
+                    th uuid
+                    th Actions
+                each user in users
+                    tr 
+                        td #{user.name}
+                        td #{user.username}
+                        td #{user.age}
+                        td #{user.email}
+                        td #{user.uuid}
+                        td
+                            include buttons.pug
+        else
+            h1 USER LIST
+            p There are currently no users.
+            p Please 
+                a(href='/') create a new user

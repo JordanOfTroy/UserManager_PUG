@@ -1,15 +1,32 @@
-form(action="/", method="post") 
-    div 
-        label(for='name') Name: 
-        input(name='name' id='name')
-    div 
-        label(for='age') Age: 
-        input(name='age' id='age')
-    div 
-        label(for='username') Username: 
-        input(name='username' id='username')
-    div 
-        label(for='email') Email: 
-        input(name='email' id='email')
-    div 
-        input(type='submit' value='Add User')
+if user 
+    form(action=`/update/${user.uuid}`, method="post") 
+        div 
+            label(for='name') Name: 
+            input(name='name' id='name' value=`${user.name}`)
+        div 
+            label(for='age') Age: 
+            input(name='age' id='age' value=`${user.age}`)
+        div 
+            label(for='username') Username: 
+            input(name='username' id='username' value=`${user.username}`)
+        div 
+            label(for='email') Email: 
+            input(name='email' id='email' value=`${user.email}`)
+        div 
+            input(type='submit' value='Update User')
+else
+    form(action="/", method="post") 
+        div 
+            label(for='name') Name: 
+            input(name='name' id='name')
+        div 
+            label(for='age') Age: 
+            input(name='age' id='age')
+        div 
+            label(for='username') Username: 
+            input(name='username' id='username')
+        div 
+            label(for='email') Email: 
+            input(name='email' id='email')
+        div 
+            input(type='submit' value='Add User')
