@@ -35,16 +35,18 @@ server.post("/", (req, res) => {
       console.log("file updated");
     }
   );
-  res.render("userList", {
-    users,
-  });
+  res.redirect('/users')
 });
 
 server.get("/users", (req, res) => {
   let { users } = data;
-  res.render("userList", {
-    users: users,
-  });
+  if (users) {
+    res.render("userList", {
+      users: users,
+    });
+  } else {
+    res.redirect('/')
+  }
 });
 
 server.get("/delete/:id", (req, res) => {
@@ -53,16 +55,16 @@ server.get("/delete/:id", (req, res) => {
   let ind = users.map((user) => user.uuid).indexOf(id);
   users.splice(ind, 1);
   let json = JSON.stringify(data);
-  fs.writeFile(
+  fs.writeFileSync(
     path.join(__dirname, "data", "userList.json"),
-    json,
-    "utf8",
-    () => {
-      console.log("file updated");
-      res.redirect("/users");
-    }
+    json
+    // "utf8"
+    // () => {
+    //   console.log("file updated");
+    //   // res.redirect("/users");
+    // }
   );
-  // res.redirect("/users");
+  res.redirect("/users");
 });
 
 

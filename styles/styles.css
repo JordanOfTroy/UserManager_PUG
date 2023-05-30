@@ -1,0 +1,22 @@
+.usersTable {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    /* min-width: 400px; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+th, td {
+    padding: 1em;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+.dataRow:nth-child(2n+0){
+    background-color: lightgray;
+}
+

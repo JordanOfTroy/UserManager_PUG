@@ -5,12 +5,14 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
+        style 
+            include ../styles/styles.css
     body 
         if users.length > 0
             h1 USER LIST 
                 span 
                     a(href="/") Add New User
-            table
+            table.usersTable
                 tr 
                     th Name
                     th UserName
@@ -19,12 +21,12 @@ html(lang="en")
                     th uuid
                     th Actions
                 each user in users
-                    tr 
+                    tr.dataRow
                         td #{user.name}
                         td #{user.username}
                         td #{user.age}
                         td #{user.email}
-                        td #{user.uuid}
+                        td.uuid #{user.uuid}
                         td
                             include buttons.pug
         else
