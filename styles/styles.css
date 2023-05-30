@@ -20,3 +20,20 @@ th {
     background-color: lightgray;
 }
 
+button {
+    border: none;
+    border-radius: 50px;
+    margin: .25em;
+    padding: .25em .5em;
+    background-color: cornflowerblue;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+.dangerButt {
+    background-color: crimson;
+}
